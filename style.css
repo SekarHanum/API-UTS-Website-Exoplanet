@@ -1,0 +1,371 @@
+/* Reset dan pengaturan dasar */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body */
+body {
+  font-family: 'Roboto', sans-serif;
+  background: linear-gradient(180deg, #0a0f2b 0%, #1e2a5e 100%);
+  color: #e0e0e0;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Efek bintang di latar belakang */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100"><circle cx="2" cy="2" r="1" fill="rgba(255,255,255,0.3)"/></svg>') repeat;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* AppBar */
+.app-bar {
+  background: linear-gradient(90deg, #3f51b5 0%, #7986cb 100%);
+  color: white;
+  padding: 16px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(5px);
+}
+
+.app-bar h1 {
+  font-size: 22px;
+  font-weight: 500;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.app-bar-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.local-data-chip {
+  display: none;
+  background: #fff3e0;
+  color: #333;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 500;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.refresh-btn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.refresh-btn:hover {
+  transform: rotate(360deg);
+}
+
+/* Searchbar */
+.search-bar {
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 25px;
+  padding: 8px 16px;
+  margin: 16px 0;
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.search-icon {
+  font-size: 18px;
+  margin-right: 8px;
+  color: #b0bec5;
+}
+
+#search-input {
+  background: none;
+  border: none;
+  color: #e0e0e0;
+  font-size: 16px;
+  width: 100%;
+  outline: none;
+}
+
+#search-input::placeholder {
+  color: #b0bec5;
+}
+
+#search-input:focus {
+  border-bottom: 2px solid #3f51b5;
+  transition: border-bottom 0.3s ease;
+}
+
+/* Container */
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+/* Loading */
+.loading {
+  display: none;
+  justify-content: center;
+  padding: 24px;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 5px solid #3f51b5;
+  border-top: 5px solid transparent;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Error Message */
+.error-message {
+  display: none;
+  text-align: center;
+  color: #ef5350;
+  padding: 16px;
+  font-size: 16px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+}
+
+.error-message button {
+  margin-top: 16px;
+  padding: 8px 16px;
+  background: #3f51b5;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.3s ease;
+}
+
+.error-message button:hover {
+  background: #303f9f;
+}
+
+/* Planet List */
+.planet-list {
+  margin-top: 8px;
+  min-height: 100vh;
+}
+
+.planet-card {
+  background: linear-gradient(90deg, rgba(63, 81, 181, 0.1) 0%, #ffffff 10%);
+  border-radius: 12px;
+  margin-bottom: 16px;
+  padding: 16px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  opacity: 0;
+  animation: fadeIn 0.5s ease forwards;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.planet-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.planet-card::before {
+  content: '🪐';
+  font-size: 20px;
+}
+
+.planet-card h3 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #1e3a8a;
+  margin-bottom: 8px;
+}
+
+.planet-card p {
+  font-size: 14px;
+  color: #374151;
+  margin-bottom: 4px;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Sentinel untuk lazy loading */
+#sentinel {
+  height: 20px;
+}
+
+/* Modal */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content {
+  background: #ffffff;
+  width: 90%;
+  max-width: 600px;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+  position: relative;
+  max-height: 80vh;
+  overflow-y: auto;
+  padding: 20px;
+  transform: scale(0.8);
+  opacity: 0;
+  animation: modalAppear 0.3s ease forwards;
+}
+
+@keyframes modalAppear {
+  to { transform: scale(1); opacity: 1; }
+}
+
+.close {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  font-size: 28px;
+  color: #666;
+  cursor: pointer;
+}
+
+.close:hover {
+  color: #3f51b5;
+}
+
+.modal-content h3 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #1e3a8a;
+  margin-bottom: 16px;
+}
+
+.modal-content p {
+  font-size: 16px;
+  color: #374151;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.modal-content p::before {
+  font-size: 18px;
+}
+
+.modal-content p strong:contains("Nama Planet")::before { content: '🪐'; }
+.modal-content p strong:contains("Bintang Induk")::before { content: '⭐'; }
+.modal-content p strong:contains("Tahun Penemuan")::before { content: '📅'; }
+.modal-content p strong:contains("Periode Orbit")::before { content: '⏳'; }
+.modal-content p strong:contains("Massa")::before { content: '⚖️'; }
+.modal-content p strong:contains("Radius")::before { content: '📏'; }
+
+.modal-content img {
+  max-width: 100%;
+  border-radius: 8px;
+  margin-bottom: 16px;
+}
+
+.wiki-link {
+  color: #3f51b5;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.wiki-link:hover {
+  text-decoration: underline;
+}
+
+.modal-card {
+  background: linear-gradient(135deg, #e8eaf6 0%, #ffffff 100%);
+  padding: 16px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 24px 0;
+  font-size: 14px;
+  color: #b0bec5;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+/* Responsivitas */
+@media (max-width: 600px) {
+  .app-bar {
+    padding: 12px 16px;
+  }
+  .app-bar h1 {
+    font-size: 18px;
+  }
+  .refresh-btn {
+    font-size: 20px;
+  }
+  .container {
+    padding: 8px;
+  }
+  .search-bar {
+    padding: 6px 12px;
+  }
+  #search-input {
+    font-size: 14px;
+  }
+  .planet-card {
+    padding: 12px;
+  }
+  .planet-card h3 {
+    font-size: 18px;
+  }
+  .planet-card p {
+    font-size: 13px;
+  }
+  .modal-content {
+    width: 95%;
+    padding: 16px;
+  }
+  .modal-content h3 {
+    font-size: 18px;
+  }
+  .modal-content p {
+    font-size: 14px;
+  }
+}
