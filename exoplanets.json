@@ -1,0 +1,82 @@
+[
+  {
+    "pl_name": "Kepler-22b",
+    "hostname": "Kepler-22",
+    "disc_year": 2011,
+    "pl_orbper": 289.86,
+    "pl_bmassj": null,
+    "pl_radj": 0.21
+  },
+  {
+    "pl_name": "HD 209458 b",
+    "hostname": "HD 209458",
+    "disc_year": 1999,
+    "pl_orbper": 3.52,
+    "pl_bmassj": 0.69,
+    "pl_radj": 1.32
+  },
+  {
+    "pl_name": "TRAPPIST-1e",
+    "hostname": "TRAPPIST-1",
+    "disc_year": 2017,
+    "pl_orbper": 6.10,
+    "pl_bmassj": null,
+    "pl_radj": 0.08
+  },
+  {
+    "pl_name": "Proxima Centauri b",
+    "hostname": "Proxima Centauri",
+    "disc_year": 2016,
+    "pl_orbper": 11.19,
+    "pl_bmassj": 0.003,
+    "pl_radj": null
+  },
+  {
+    "pl_name": "55 Cancri e",
+    "hostname": "55 Cancri",
+    "disc_year": 2004,
+    "pl_orbper": 0.74,
+    "pl_bmassj": 0.025,
+    "pl_radj": 0.17
+  },
+  {
+    "pl_name": "WASP-12b",
+    "hostname": "WASP-12",
+    "disc_year": 2008,
+    "pl_orbper": 1.09,
+    "pl_bmassj": 1.47,
+    "pl_radj": 1.94
+  },
+  {
+    "pl_name": "Gliese 581g",
+    "hostname": "Gliese 581",
+    "disc_year": 2010,
+    "pl_orbper": 36.56,
+    "pl_bmassj": 0.01,
+    "pl_radj": null
+  },
+  {
+    "pl_name": "K2-18b",
+    "hostname": "K2-18",
+    "disc_year": 2015,
+    "pl_orbper": 32.94,
+    "pl_bmassj": 0.027,
+    "pl_radj": 0.20
+  },
+  {
+    "pl_name": "Tau Ceti g",
+    "hostname": "Tau Ceti",
+    "disc_year": 2017,
+    "pl_orbper": 20.00,
+    "pl_bmassj": 0.006,
+    "pl_radj": null
+  },
+  {
+    "pl_name": "HAT-P-7b",
+    "hostname": "HAT-P-7",
+    "disc_year": 2008,
+    "pl_orbper": 2.20,
+    "pl_bmassj": 1.78,
+    "pl_radj": 1.36
+  }
+]
